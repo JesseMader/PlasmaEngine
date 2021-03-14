@@ -1,0 +1,235 @@
+[Version:1]
+Cog 
+{
+	var Name = "RotateGizmo"
+	Transform 
+	{
+		var Translation = Real3{0, 0, 0}
+		var Scale = Real3{1, 1, 1}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	Gizmo 
+	{
+		var Active = true
+		var ForwardEventsToChildren = true
+	}
+	RotateGizmo 
+	{
+		var Snapping = false
+		var SnapAngle = 15
+	}
+	Hierarchy 
+	{
+		Cog [Id:0x5f91601d6478bc3a]
+		{
+			var Name = "XAxis"
+			Transform 
+			{
+				var Translation = Real3{0, 0, 0}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			MouseCapture 
+			{
+			}
+			Gizmo 
+			{
+				var Active = true
+				var ForwardEventsToChildren = true
+			}
+			Orientation 
+			{
+				var GlobalUp = Real3{0, 1, 0}
+				var LocalOrientationBasis = Quaternion{0, -0.707106769, 0, 0.707106769}
+				var DefaultBases = OrientationBases.ForwardXUpY
+			}
+			GizmoDrag 
+			{
+				var DragMode = GizmoDragMode.Plane
+				var LineDirection = Real3{1, 0, 0}
+				var PlaneNormal = Real3{1, 0, 0}
+				var NormalInWorld = false
+				var GrabMode = GizmoGrabMode.Hold
+				var AutoDrag = true
+				var DragDistance = 0
+			}
+			RingGizmo 
+			{
+				var MouseInput = true
+				var PickingPriority = 0
+				var Color = Real4{1, 0, 0, 1}
+				var HoverColor = Real4{0.920000017, 1, 0, 1}
+				var ViewScaled = true
+				var UseParentAsViewScaleOrigin = false
+				var DrawOnTop = true
+				var Radius = 2
+				var Width = 0
+				var SegmentModifier = 0.300000012
+				var SelectRadius = 0.100000001
+				var DragRadiansPerPixel = 0.00999999978
+				var BackShade = false
+				var ViewAligned = false
+				var GrabArrowColor = Real4{1, 1, 0, 1}
+				var GrabArrowLength = 1.60000002
+				var GrabArrowHeadSize = 0.119999997
+				var GrabArrowViewScaled = true
+				var GrabArrowOnTop = true
+			}
+		}
+		Cog [Id:0x5f91601d6478bccb]
+		{
+			var Name = "ZAxis"
+			Transform 
+			{
+				var Translation = Real3{0, 0, 0}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			Gizmo 
+			{
+				var Active = true
+				var ForwardEventsToChildren = true
+			}
+			Orientation 
+			{
+				var GlobalUp = Real3{0, 1, 0}
+				var LocalOrientationBasis = Quaternion{0, 1, 0, 0}
+				var DefaultBases = OrientationBases.ForwardZUpY
+			}
+			MouseCapture 
+			{
+			}
+			GizmoDrag 
+			{
+				var DragMode = GizmoDragMode.Plane
+				var LineDirection = Real3{0, 0, 1}
+				var PlaneNormal = Real3{0, 0, 1}
+				var NormalInWorld = false
+				var GrabMode = GizmoGrabMode.Hold
+				var AutoDrag = true
+				var DragDistance = 0
+			}
+			RingGizmo 
+			{
+				var MouseInput = true
+				var PickingPriority = 0
+				var Color = Real4{0, 0.100000001, 1, 1}
+				var HoverColor = Real4{0.920000017, 1, 0, 1}
+				var ViewScaled = true
+				var UseParentAsViewScaleOrigin = false
+				var DrawOnTop = true
+				var Radius = 2
+				var Width = 0
+				var SegmentModifier = 0.300000012
+				var SelectRadius = 0.100000001
+				var DragRadiansPerPixel = 0.00999999978
+				var BackShade = false
+				var ViewAligned = false
+				var GrabArrowColor = Real4{1, 1, 0, 1}
+				var GrabArrowLength = 1.60000002
+				var GrabArrowHeadSize = 0.119999997
+				var GrabArrowViewScaled = true
+				var GrabArrowOnTop = true
+			}
+		}
+		Cog [Id:0x5f91601d6478bd3b]
+		{
+			var Name = "YAxis"
+			Transform 
+			{
+				var Translation = Real3{0, 0, 0}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			Gizmo 
+			{
+				var Active = true
+				var ForwardEventsToChildren = true
+			}
+			Orientation 
+			{
+				var GlobalUp = Real3{0, 1, 0}
+				var LocalOrientationBasis = Quaternion{0.707106769, 0, 0, 0.707106769}
+				var DefaultBases = OrientationBases.ForwardYUpZ
+			}
+			MouseCapture 
+			{
+			}
+			GizmoDrag 
+			{
+				var DragMode = GizmoDragMode.Plane
+				var LineDirection = Real3{0, 0, 1}
+				var PlaneNormal = Real3{0, 1, 0}
+				var NormalInWorld = false
+				var GrabMode = GizmoGrabMode.Hold
+				var AutoDrag = true
+				var DragDistance = 0
+			}
+			RingGizmo 
+			{
+				var MouseInput = true
+				var PickingPriority = 0
+				var Color = Real4{0.109999999, 1, 0, 1}
+				var HoverColor = Real4{0.920000017, 1, 0, 1}
+				var ViewScaled = true
+				var UseParentAsViewScaleOrigin = false
+				var DrawOnTop = true
+				var Radius = 2
+				var Width = 0
+				var SegmentModifier = 0.300000012
+				var SelectRadius = 0.100000001
+				var DragRadiansPerPixel = 0.00999999978
+				var BackShade = false
+				var ViewAligned = false
+				var GrabArrowColor = Real4{1, 1, 0, 1}
+				var GrabArrowLength = 1.60000002
+				var GrabArrowHeadSize = 0.119999997
+				var GrabArrowViewScaled = true
+				var GrabArrowOnTop = true
+			}
+		}
+		Cog [Id:0x5f91601d6478bdaa]
+		{
+			var Name = "Horizon"
+			Transform 
+			{
+				var Translation = Real3{0, 0, 0}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			Gizmo 
+			{
+				var Active = true
+				var ForwardEventsToChildren = false
+			}
+			Orientation 
+			{
+				var GlobalUp = Real3{0, 1, 0}
+				var LocalOrientationBasis = Quaternion{0, -0.707106769, 0, 0.707106769}
+				var DefaultBases = OrientationBases.ForwardXUpY
+			}
+			RingGizmo 
+			{
+				var MouseInput = false
+				var PickingPriority = 0
+				var Color = Real4{1, 1, 1, 0.5}
+				var HoverColor = Real4{0.920000017, 1, 0, 1}
+				var ViewScaled = true
+				var UseParentAsViewScaleOrigin = false
+				var DrawOnTop = true
+				var Radius = 2
+				var Width = 5
+				var SegmentModifier = 6
+				var SelectRadius = 0.100000001
+				var DragRadiansPerPixel = 0.00999999978
+				var BackShade = false
+				var ViewAligned = true
+				var GrabArrowColor = Real4{1, 1, 0, 1}
+				var GrabArrowLength = 1.60000002
+				var GrabArrowHeadSize = 0.119999997
+				var GrabArrowViewScaled = true
+				var GrabArrowOnTop = true
+			}
+		}
+	}
+}

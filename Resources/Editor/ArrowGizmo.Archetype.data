@@ -1,0 +1,59 @@
+[Version:1]
+Cog 
+{
+	var Name = "ArrowGizmo"
+	Transform 
+	{
+		var Translation = Real3{0, 0, 0}
+		var Scale = Real3{1, 1, 1}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	Orientation 
+	{
+		var GlobalUp = Real3{0, 1, 0}
+		var LocalOrientationBasis = Quaternion{0, -0.707106769, 0, 0.707106769}
+		var DefaultBases = OrientationBases.ForwardXUpY
+	}
+	MouseCapture 
+	{
+	}
+	Gizmo 
+	{
+		var Active = true
+		var ForwardEventsToChildren = true
+	}
+	GizmoDrag 
+	{
+		var DragMode = GizmoDragMode.Line
+		var LineDirection = Real3{1, 0, 0}
+		var PlaneNormal = Real3{0, 1, 0}
+		var NormalInWorld = false
+		var GrabMode = GizmoGrabMode.Hold
+		var AutoDrag = true
+		var DragDistance = 6
+	}
+	ArrowGizmo 
+	{
+		var MouseInput = true
+		var PickingPriority = 0
+		var Color = Real4{1, 0, 0, 0.400000006}
+		var HoverColor = Real4{1, 1, 0, 0.400000006}
+		var ViewScaled = true
+		var UseParentAsViewScaleOrigin = false
+		var DrawOnTop = true
+		var HeadSize = 0.280000001
+		var Length = 2.79999995
+		var SelectRadius = 0.25
+		var HeadType = ArrowHeadType.Sphere
+		var DualHeads = false
+		var FilledHeads = true
+		var LineDrawWidth = 4.9211998
+	}
+	TranslateGizmo 
+	{
+		var UpdateMode = UpdateMode.TranslateSelf
+		var Snapping = false
+		var SnapMode = GizmoSnapMode.Relative
+		var SnapDistance = 0.25
+	}
+}

@@ -1,0 +1,122 @@
+// MIT Licensed (see LICENSE.md).
+
+// Data needed for rendering a point light.
+// Usage with DeferredRenderer expects a Model on this object with the
+// 'PointLight' Material and 'Sphere' Mesh.
+// No default usage with ForwardRenderer.
+[RunInEditor]
+class PointLight : LightningComponent
+{
+  [Dependency] var Transform : Transform;
+  
+  // Color used in lighting calculations.
+  [Property] var LightColor : Real4
+  {
+    get { return Real4(this.LightColorValue, 1.0); }
+    set { this.LightColorValue = value.XYZ; }
+  }
+  
+  // Combined with area light falloff and represents total emittance of the light. Value in Lumens.
+  [Property][Slider(0, 5000, 10)][ShaderInput("PointLightFragment")] var LightIntensity : Real
+  {
+    get { return this.LightIntensityValue; }
+    set { this.LightIntensityValue = Math.Max(value, 0.0); }
+  }
+  
+  // Temperature of the light in Kelvin
+  [Property][Slider(1000, 10000, 100)][ShaderInput("LightPass", "LightTemperature")] var LightTemperature : Real = 6500;
+  
+  
+  // Distance at which the light's effect is completely faded.
+  // Does not affect apparent brightness of the light.
+  [Property][ShaderInput("PointLightFragment")] var FalloffRadius : Real
+  {
+    get { return this.FalloffRadiusValue; }
+    set
+    {
+      this.FalloffRadiusValue = Math.Max(value, 0.1);
+      this.SetLightRadiusInput();
+      // Don't have access to other components in serialization.
+      if (this.Transform != null)
+        this.Transform.WorldScale = Real3(this.FalloffRadiusValue * 2.0);
+    }
+  }
+  
+  // Physical radius of the sphere of light.
+  // Affects the shape of specular reflection.
+  [Property] var LightRadius : Real
+  {
+    get { return this.LightRadiusValue * 10; }
+    set
+    {
+      this.LightRadiusValue = Math.Max(value / 10, 0.0);
+      this.SetLightRadiusInput();
+    }
+  }
+  
+  [Property] var LightLength : Real
+  {
+    get { return this.LightLengthValue; }
+    set
+    {
+      this.LightLengthValue = Math.Max(value, 0.0);
+      this.SetLightLengthInput();
+    }
+  }
+  
+  [ShaderInput("PointLightFragment", "LightRadius")] var LightRadiusInput : Real;
+  [ShaderInput("PointLightFragment", "LightLength")] var LightLengthInput : Real;
+  [ShaderInput("LightPass", "LightColor")] var LightColorValue : Real3 = Real3(1.0);
+  
+  [ShaderInput("SpotLightFragment")] var LightDirection : Real3;
+  var LightIntensityValue : Real = 800.0;
+  var FalloffRadiusValue : Real = 10.0;
+  var LightRadiusValue : Real = 0.0;
+  var LightLengthValue : Real = 0.0;
+  
+  function Initialize(init : CogInitializer)
+  {
+    this.LightDirection = Math.Normalize(this.Transform.TransformNormal(-Real3.ZAxis));
+    this.Transform.WorldScale = Real3(this.FalloffRadiusValue * 2.0);
+    this.SetLightRadiusInput();
+    Plasma.Connect(this.Owner, Events.TransformUpdated, this.OnTransformUpdated);
+  }
+  
+  function OnTransformUpdated(event : ObjectEvent)
+  {
+    this.LightDirection = Math.Normalize(this.Transform.TransformNormal(-Real3.ZAxis));
+  }
+  
+  function SetLightRadiusInput()
+  {
+    this.LightRadiusInput = Math.Min(this.LightRadiusValue, this.FalloffRadius);
+  }
+  
+  function SetLightLengthInput()
+  {
+    this.LightLengthInput = Math.Min(this.LightLengthValue, this.FalloffRadius);
+  }
+  
+  function DebugDraw()
+  {
+    var position = this.Transform.WorldTranslation;
+    //if(this.LightLengthInput > 0)
+    //{
+    //  var start = position;
+    //  start.X -= this.LightLengthInput / 0.5;
+    //  var end = position;
+    //  end.X += this.LightLengthInput / 0.5;
+      
+    //  var tubeLight = DebugCapsule(start, end, this.LightRadiusInput) {Color = Real4(0.5, 0.5, 0.0, 1.0)};
+    //  DebugDraw.Add(tubeLight);
+    //}
+    //else
+    //{
+      var lightSphere = DebugSphere(position, this.LightRadiusInput) {Color = Real4(0.5, 0.5, 0.0, 1.0)};
+      DebugDraw.Add(lightSphere);
+   // }
+    
+    var falloffSphere = DebugSphere(position, this.FalloffRadius) {Color = Real4(1.0, 1.0, 0.0, 1.0)};
+    DebugDraw.Add(falloffSphere);
+  }
+}

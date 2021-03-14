@@ -1,0 +1,350 @@
+[Version:1]
+Cog 
+{
+	var Name = "ScaleGizmo"
+	Transform 
+	{
+		var Translation = Real3{55.9619217, 0.5, -2.39452004}
+		var Scale = Real3{1, 1, 1}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	Gizmo 
+	{
+		var Active = true
+		var ForwardEventsToChildren = true
+	}
+	ScaleGizmo 
+	{
+		var Snapping = false
+		var SnapMode = GizmoSnapMode.Relative
+		var SnapDistance = 1
+	}
+	Hierarchy 
+	{
+		Cog [Id:0x58cb29db155e0362]
+		{
+			var Name = "CenterSquare"
+			Transform 
+			{
+				var Translation = Real3{0, 0, 0}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			MouseCapture 
+			{
+			}
+			Gizmo 
+			{
+				var Active = true
+				var ForwardEventsToChildren = true
+			}
+			GizmoDrag 
+			{
+				var DragMode = GizmoDragMode.ViewPlane
+				var LineDirection = Real3{1, 0, 0}
+				var PlaneNormal = Real3{0, 1, 0}
+				var NormalInWorld = false
+				var GrabMode = GizmoGrabMode.Hold
+				var AutoDrag = true
+				var DragDistance = 0
+			}
+			SquareGizmo 
+			{
+				var MouseInput = true
+				var PickingPriority = 1
+				var Color = Real4{0.800000012, 0.800000012, 0.800000012, 0.999899983}
+				var HoverColor = Real4{1, 1, 0, 1}
+				var ViewScaled = true
+				var UseParentAsViewScaleOrigin = true
+				var DrawOnTop = true
+				var Size = Real3{0.5, 0.5, 0.5}
+				var SnapDistance = 0.25
+				var ViewAligned = true
+				var Filled = true
+				var Bordered = true
+			}
+		}
+		Cog [Id:0x58cb29db155e0368]
+		{
+			var Name = "XY"
+			Transform 
+			{
+				var Translation = Real3{1, 1, 0}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			MouseCapture 
+			{
+			}
+			Gizmo 
+			{
+				var Active = true
+				var ForwardEventsToChildren = true
+			}
+			GizmoDrag 
+			{
+				var DragMode = GizmoDragMode.Plane
+				var LineDirection = Real3{1, 0, 0}
+				var PlaneNormal = Real3{0, 0, 1}
+				var NormalInWorld = false
+				var GrabMode = GizmoGrabMode.Hold
+				var AutoDrag = true
+				var DragDistance = 0
+			}
+			SquareGizmo 
+			{
+				var MouseInput = true
+				var PickingPriority = 0
+				var Color = Real4{0, 0, 1, 0.400000006}
+				var HoverColor = Real4{1, 1, 0, 0.400000006}
+				var ViewScaled = true
+				var UseParentAsViewScaleOrigin = true
+				var DrawOnTop = true
+				var Size = Real3{0.400000006, 0.400000006, 0}
+				var SnapDistance = 0.25
+				var ViewAligned = false
+				var Filled = true
+				var Bordered = true
+			}
+		}
+		Cog [Id:0x58cb29db155e036a]
+		{
+			var Name = "YZ"
+			Transform 
+			{
+				var Translation = Real3{0, 1, 1}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			MouseCapture 
+			{
+			}
+			Gizmo 
+			{
+				var Active = true
+				var ForwardEventsToChildren = true
+			}
+			GizmoDrag 
+			{
+				var DragMode = GizmoDragMode.Plane
+				var LineDirection = Real3{1, 0, 0}
+				var PlaneNormal = Real3{1, 0, 0}
+				var NormalInWorld = false
+				var GrabMode = GizmoGrabMode.Hold
+				var AutoDrag = true
+				var DragDistance = 0
+			}
+			SquareGizmo 
+			{
+				var MouseInput = true
+				var PickingPriority = 0
+				var Color = Real4{1, 0, 0, 0.400000006}
+				var HoverColor = Real4{1, 1, 0, 0.400000006}
+				var ViewScaled = true
+				var UseParentAsViewScaleOrigin = true
+				var DrawOnTop = true
+				var Size = Real3{0, 0.400000006, 0.400000006}
+				var SnapDistance = 0.25
+				var ViewAligned = false
+				var Filled = true
+				var Bordered = true
+			}
+		}
+		Cog [Id:0x58cb29db155e036c]
+		{
+			var Name = "XZ"
+			Transform 
+			{
+				var Translation = Real3{1, 0, 1}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			MouseCapture 
+			{
+			}
+			Gizmo 
+			{
+				var Active = true
+				var ForwardEventsToChildren = true
+			}
+			GizmoDrag 
+			{
+				var DragMode = GizmoDragMode.Plane
+				var LineDirection = Real3{1, 0, 0}
+				var PlaneNormal = Real3{0, 1, 0}
+				var NormalInWorld = false
+				var GrabMode = GizmoGrabMode.Hold
+				var AutoDrag = true
+				var DragDistance = 0
+			}
+			SquareGizmo 
+			{
+				var MouseInput = true
+				var PickingPriority = 0
+				var Color = Real4{0, 1, 0, 0.400000006}
+				var HoverColor = Real4{1, 1, 0, 0.400000006}
+				var ViewScaled = true
+				var UseParentAsViewScaleOrigin = true
+				var DrawOnTop = true
+				var Size = Real3{0.400000006, 0, 0.400000006}
+				var SnapDistance = 0.25
+				var ViewAligned = false
+				var Filled = true
+				var Bordered = true
+			}
+		}
+		Cog [Id:0x58cb29db155e036e]
+		{
+			var Name = "XAxis"
+			Transform 
+			{
+				var Translation = Real3{0, 0, 0}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			Orientation 
+			{
+				var GlobalUp = Real3{0, 1, 0}
+				var LocalOrientationBasis = Quaternion{0, -0.707106769, 0, 0.707106769}
+				var DefaultBases = OrientationBases.ForwardXUpY
+			}
+			MouseCapture 
+			{
+			}
+			Gizmo 
+			{
+				var Active = true
+				var ForwardEventsToChildren = true
+			}
+			GizmoDrag 
+			{
+				var DragMode = GizmoDragMode.Line
+				var LineDirection = Real3{1, 0, 0}
+				var PlaneNormal = Real3{0, 1, 0}
+				var NormalInWorld = false
+				var GrabMode = GizmoGrabMode.Hold
+				var AutoDrag = true
+				var DragDistance = 0
+			}
+			ArrowGizmo 
+			{
+				var MouseInput = true
+				var PickingPriority = 0
+				var Color = Real4{1, 0, 0, 0.400000006}
+				var HoverColor = Real4{1, 1, 0, 0.400000006}
+				var ViewScaled = true
+				var UseParentAsViewScaleOrigin = false
+				var DrawOnTop = true
+				var HeadSize = 0.140000001
+				var Length = 2.79999995
+				var SelectRadius = 0.25
+				var HeadType = ArrowHeadType.Cube
+				var DualHeads = false
+				var FilledHeads = true
+				var LineDrawWidth = 2
+			}
+		}
+		Cog [Id:0x58cb29db155e036f]
+		{
+			var Name = "YAxis"
+			Transform 
+			{
+				var Translation = Real3{0, 0, 0}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			Orientation 
+			{
+				var GlobalUp = Real3{0, 1, 0}
+				var LocalOrientationBasis = Quaternion{0.707106769, 0, 0, 0.707106769}
+				var DefaultBases = OrientationBases.ForwardYUpZ
+			}
+			MouseCapture 
+			{
+			}
+			Gizmo 
+			{
+				var Active = true
+				var ForwardEventsToChildren = true
+			}
+			GizmoDrag 
+			{
+				var DragMode = GizmoDragMode.Line
+				var LineDirection = Real3{0, 1, 0}
+				var PlaneNormal = Real3{0, 1, 0}
+				var NormalInWorld = false
+				var GrabMode = GizmoGrabMode.Hold
+				var AutoDrag = true
+				var DragDistance = 0
+			}
+			ArrowGizmo 
+			{
+				var MouseInput = true
+				var PickingPriority = 0
+				var Color = Real4{0, 1, 0, 0.400000006}
+				var HoverColor = Real4{1, 1, 0, 0.400000006}
+				var ViewScaled = true
+				var UseParentAsViewScaleOrigin = false
+				var DrawOnTop = true
+				var HeadSize = 0.140000001
+				var Length = 2.79999995
+				var SelectRadius = 0.25
+				var HeadType = ArrowHeadType.Cube
+				var DualHeads = false
+				var FilledHeads = true
+				var LineDrawWidth = 2
+			}
+		}
+		Cog [Id:0x58cb29db155e0371]
+		{
+			var Name = "ZAxis"
+			Transform 
+			{
+				var Translation = Real3{0, 0, 0}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			Orientation 
+			{
+				var GlobalUp = Real3{0, 1, 0}
+				var LocalOrientationBasis = Quaternion{0, 1, 0, 0}
+				var DefaultBases = OrientationBases.ForwardZUpY
+			}
+			MouseCapture 
+			{
+			}
+			Gizmo 
+			{
+				var Active = true
+				var ForwardEventsToChildren = true
+			}
+			GizmoDrag 
+			{
+				var DragMode = GizmoDragMode.Line
+				var LineDirection = Real3{0, 0, 1}
+				var PlaneNormal = Real3{0, 1, 0}
+				var NormalInWorld = false
+				var GrabMode = GizmoGrabMode.Hold
+				var AutoDrag = true
+				var DragDistance = 0
+			}
+			ArrowGizmo 
+			{
+				var MouseInput = true
+				var PickingPriority = 0
+				var Color = Real4{0, 0, 1, 0.400000006}
+				var HoverColor = Real4{1, 1, 0, 0.400000006}
+				var ViewScaled = true
+				var UseParentAsViewScaleOrigin = false
+				var DrawOnTop = true
+				var HeadSize = 0.140000001
+				var Length = 2.79999995
+				var SelectRadius = 0.25
+				var HeadType = ArrowHeadType.Cube
+				var DualHeads = false
+				var FilledHeads = true
+				var LineDrawWidth = 2
+			}
+		}
+	}
+}

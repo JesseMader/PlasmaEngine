@@ -1,0 +1,16 @@
+// MIT Licensed (see LICENSE.md).
+
+[Pixel]
+struct EmissiveValue
+{
+    [FragmentInput][StageInput] var Uv : Real2;
+    [FragmentInput][Input] var EmissiveColor : Real4 = Real4.One;
+    [Input] var EmissivePower : Real = 5.0;
+    
+    [FragmentInput][Output] var Emissive : Real3 = Real3.One;
+
+    function Main()
+    {
+        this.Emissive *= this.EmissiveColor.XYZ * (this.EmissivePower * 20);
+    }
+}
